@@ -1,4 +1,4 @@
-import {Component, Inject} from "@angular/core";
+import {Component, Inject, ChangeDetectionStrategy} from "@angular/core";
 import {
   OpContextMenuItem,
   OpContextMenuLocalsMap, OpContextMenuLocalsToken
@@ -6,7 +6,8 @@ import {
 import {OPContextMenuService} from "core-components/op-context-menu/op-context-menu.service";
 
 @Component({
-  templateUrl: './op-context-menu.html'
+  templateUrl: './op-context-menu.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OPContextMenuComponent {
   public items:OpContextMenuItem[];
