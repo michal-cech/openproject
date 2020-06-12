@@ -36,6 +36,8 @@ export class KeepTabService {
 
   protected subject = new ReplaySubject<{ [tab:string]:string; }>(1);
 
+  private _baseRoute:string = 'work-packages.partitioned.list';
+
   constructor(protected $state:StateService,
               protected $transitions:TransitionService) {
 
@@ -65,11 +67,11 @@ export class KeepTabService {
   }
 
   public get currentDetailsState():string {
-    return 'work-packages.partitioned.list.details.' + this.currentDetailsTab;
+    return `${this.baseRoute}.details.` + this.currentDetailsTab;
   }
 
   public isDetailsState(stateName:string) {
-    return stateName === 'work-packages.partitioned.list.details';
+    return !!stateName && stateName.includes('.details');
   }
 
   public get currentShowTab():string {
@@ -110,7 +112,7 @@ export class KeepTabService {
     }
 
     if (stateName === 'details') {
-      return this.$state.includes('work-packages.partitioned.list.details.*');
+      return this.$state.includes('.details.*');
     }
 
     return false;
@@ -128,5 +130,13 @@ export class KeepTabService {
 
     this.updateTab('show');
     this.updateTab('details');
+  }
+
+  public set baseRoute(val:string) {
+    this._baseRoute = val;
+  }
+
+  public get baseRoute():string {
+    return this._baseRoute;
   }
 }
