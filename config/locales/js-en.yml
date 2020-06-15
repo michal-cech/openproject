@@ -483,6 +483,9 @@ en:
     label_version_plural: "Versions"
     label_view_has_changed: "This view has unsaved changes. Click to save them."
 
+    #new
+    label_email: "Email communication"
+
     help_texts:
       show_modal: 'Show attribute help text entry'
 

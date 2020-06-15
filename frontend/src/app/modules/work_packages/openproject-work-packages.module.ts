@@ -464,5 +464,9 @@ export class OpenprojectWorkPackagesModule {
           return null;
       }
     });
+
+    hookService.register('workPackageEmailListComponent', (workpacakge:WorkPackageResource) => {
+      return EmailListCommunication;
+    })
   }
 }

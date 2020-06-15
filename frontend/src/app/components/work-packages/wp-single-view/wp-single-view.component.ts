@@ -125,6 +125,9 @@ export class WorkPackageSingleViewComponent extends UntilDestroyedMixin implemen
       createdBy: this.I18n.t('js.label_created_by'),
       lastUpdatedOn: this.I18n.t('js.label_last_updated_on')
     },
+    email: {
+      label: this.I18n.t('js.label_email')
+    }
   };
 
   protected firstTimeFocused:boolean = false;
@@ -247,6 +250,10 @@ export class WorkPackageSingleViewComponent extends UntilDestroyedMixin implemen
     // we take the last registered group component which means that
     // plugins will have their say if they register for it.
     return this.hook.call('workPackageAttachmentUploadComponent', this.workPackage).pop() || null;
+  }
+
+  public emailListCommunication() {
+    return
   }
 
   /*

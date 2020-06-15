@@ -142,3 +142,19 @@
     </ndc-dynamic>
   </div>
 </div>
+
+<div class="work-packages--email attributes-group">
+  <div class="work-packages--email-container">
+    <div class="attributes-group--header">
+      <div class="attributes-group--header-container">
+        <h3 class="attributes-group--header-text" [textContent]="text.email.label"></h3>
+      </div>
+    </div>
+    <div class="single-attribute work-packages--details--description">
+      <ndc-dynamic [ndcDynamicComponent]="emailListCommunication()"
+                   [ndcDynamicInputs]="{ resource: workPackage }">
+      </ndc-dynamic>
+    </div>
+
+  </div>
+</div>
