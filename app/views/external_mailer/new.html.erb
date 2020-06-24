@@ -1,0 +1,6 @@
+<%= form_tag '/mail/send' do%>
+  Email : </br><%= text_field_tag 'email', ''%></br>
+  subject: </br><%= text_field_tag 'subject', ''%></br>
+  Body:<%= text_area_tag 'body', ''%>
+  <%= submit_tag "submit",:value => "submit"%>
+<%end%>

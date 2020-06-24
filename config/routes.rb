@@ -561,6 +561,12 @@ OpenProject::Application.routes.draw do
     post 'authentication_settings' => 'authentication#edit'
   end
 
+  ##
+  scope controller: 'external_mailer' do
+    get '/mail' => 'external_mailer#new'
+    post '/mail/send' => 'external_mailer#path'
+  end
+
   resources :colors do
     member do
       get :confirm_destroy
