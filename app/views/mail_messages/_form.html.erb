@@ -1,0 +1,30 @@
+<%= form_with model: @mail_message, local: true do |form| %>
+  <% if @mail_message.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@mail_message.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @mail_message.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= form.label :address %><br>
+    <%= form.text_field :address_to %>
+  </p>
+  <p>
+    <%= form.label :subject %><br>
+    <%= form.text_field :subject %>
+  </p>
+  <p>
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<%end%>

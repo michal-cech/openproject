@@ -1,0 +1,19 @@
+<table>
+  <%= link_to 'New', "/mails"++"/new" %>
+  <tr>
+    <th>Address</th>
+    <th>Subject</th>
+    <th>Text</th>
+    <th>Timestamp</th>
+    <th colspan="4"></th>
+  </tr>
+
+  <% @mail_messages.each do |mail_message| %>
+    <tr>
+      <td><%= mail_message.address_to %></td>
+      <td><%= mail_message.subject %></td>
+      <td><%= mail_message.content %></td>
+      <td><%= mail_message.created_at %></td>
+    </tr>
+  <% end %>
+</table>

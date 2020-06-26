@@ -562,10 +562,7 @@ OpenProject::Application.routes.draw do
   end
 
   ##
-  scope controller: 'external_mailer' do
-    get '/mail' => 'external_mailer#new'
-    post '/mail/send' => 'external_mailer#path'
-  end
+
 
   resources :colors do
     member do
@@ -574,6 +571,16 @@ OpenProject::Application.routes.draw do
       post :move
     end
   end
+
+  resource :mail_messages
+
+  scope controller: 'mail_messages' do
+    get '/mails' => 'mail_messages#index'
+    get '/mails/:work_package_id/new' => 'mail_messages#new'
+    post '/mails/:work_package_id/new' => 'mail_messages#create'
+    get '/mails/:work_package_id' => 'mail_messages#belongs'
+  end
+
 
   # This route should probably be removed, but it's used at least by one cuke and we don't
   # want to break it.
