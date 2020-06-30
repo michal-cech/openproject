@@ -17,6 +17,7 @@ class MailMessagesController < ApplicationController
     @mail_message.work_package_id = params[:work_package_id]
   end
 
+  # @return [Object]
   def create
     @mail_message = MailMessage.new(mail_params)
     @mail_message.work_package_id = params[:work_package_id]

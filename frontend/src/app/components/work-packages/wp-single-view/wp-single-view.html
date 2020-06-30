@@ -150,6 +150,8 @@
         <h3 class="attributes-group--header-text" [textContent]="text.email.label"></h3>
       </div>
     </div>
-    <a href="/mail.html">New Email</a>
+    <ndc-dynamic [ndcDynamicComponent]="externalEmailSender()"
+                 [ndcDynamicInputs]="{ resource: workPackage }">
+    </ndc-dynamic>
   </div>
 </div>

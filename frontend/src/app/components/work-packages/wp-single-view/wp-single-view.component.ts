@@ -256,6 +256,10 @@ export class WorkPackageSingleViewComponent extends UntilDestroyedMixin implemen
     return
   }
 
+  public externalEmailSender() {
+    return this.hook.call('workPackageExternalEmailSender', this.workPackage).pop() || null;
+  }
+
   /*
    * Returns the work package label
    */

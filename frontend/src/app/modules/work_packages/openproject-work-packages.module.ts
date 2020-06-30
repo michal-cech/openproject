@@ -169,6 +169,8 @@ import {WorkPackageViewPageComponent} from "core-app/modules/work_packages/routi
 import {WorkPackageSettingsButtonComponent} from "core-components/wp-buttons/wp-settings-button/wp-settings-button.component";
 import {BackButtonComponent} from "core-app/modules/common/back-routing/back-button.component";
 
+import {ExternalEmailSender} from "core-app/modules/email_communication/external-email-sender/external-email-sender.component";
+
 @NgModule({
   imports: [
     // Commons
@@ -451,6 +453,10 @@ export class OpenprojectWorkPackagesModule {
 
     hookService.register('workPackageAttachmentListComponent', (workPackage:WorkPackageResource) => {
       return AttachmentListComponent;
+    });
+
+    hookService.register('workPackageExternalEmailSender', (workPackage:WorkPackageResource) => {
+      return ExternalEmailSender;
     });
 
     /** Return specialized work package changeset for editing service */
